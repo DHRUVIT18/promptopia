@@ -23,7 +23,6 @@ const handler=NextAuth({
             try {
                 //serverless -> lamba
                 await connectToDB();
-                console.log(profile);
                 //check if user is already exists
                 const userExists=await User.findOne({email:profile?.email});
                 
@@ -38,7 +37,6 @@ const handler=NextAuth({
                 }
                 return true;
             } catch (error) {
-                console.log(error, 'routejs file in the signin function');
                 return false;
             }
         }

@@ -37,9 +37,22 @@ export const PATCH = async (req, { params }) => {
 //DELETE
 export const DELETE = async (req, { params }) => {
   try {
-    await connectToDB();
-    await Prompt.findByIdAndRemove(params.id);
+   const db = await connectToDB();
+    const { id } = params.id
+    
+     let resp= await Prompt.findByIdAndRemove(params.id);
+    // Specify the collection name
+    // const collectionName = 'prompts'; // Replace with your collection name
 
+    // Construct the query object
+    // const query = { _id: new ObjectId(id) };
+
+    // Delete the document
+    // Replace the following line with your deletion logic
+    // For example, using the `deleteOne` method from the MongoDB driver:
+    // await db.collection(collectionName).deleteOne(query);
+    // Replace `db` with your actual reference to the MongoDB database
+   
     return new Response("Prompt deleted Successfully", { status: 200 });
   } catch (error) {
     return new Response("Failed to delete the Prompt", { status: 500 });
