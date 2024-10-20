@@ -19,7 +19,7 @@ const EditPrompt = () => {
       e.preventDefault();
       setSubmitting(true)
       if(!promptId)return alert('Prompt ID not found')
-
+        post.tag=post.tag.replace(/^#+/,'')
       try {
         const response=await fetch(`/api/prompt/${promptId}`,{
           method:'PATCH',

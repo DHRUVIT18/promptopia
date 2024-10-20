@@ -16,6 +16,7 @@ const CreatePrompt = () => {
     const createPrompt=async(e)=>{
       e.preventDefault();
       setSubmitting(true)
+      post.tag=post.tag.replace(/^#+/,'')
       try {
         const response=await fetch('/api/prompt/new',{
           method:'POST',
